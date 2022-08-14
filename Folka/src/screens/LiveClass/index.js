@@ -1,13 +1,13 @@
-import { View, Text } from 'react-native'
+import { View, Text,TouchableOpacity } from 'react-native'
 import React from 'react'
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-const LiveClass = () => {
+const LiveClass = (props) => {
   return (
     <View>
-      <Text>LiveClass</Text>
-      <Icon name="backward" size={30} color="#900"/>
-
+       <TouchableOpacity onPress={()=>props.navigation.navigate('Features')} style={{width:'90%',alignSelf:'center'}}>
+      <Text>Features</Text>
+      </TouchableOpacity>
     </View>
   )
 }

@@ -1,12 +1,11 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import {View, Text, FlatList} from 'react-native';
+import React, {useEffect} from 'react';
 
-const Home = () => {
+const Home = props => {
   return (
     <View>
       <Text>Home</Text>
     </View>
-  )
-}
-
+  );
+};
 export default Home

@@ -3,6 +3,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import Splash from '../screens/Splash';
 import BottomTabs from './BottomTabs';
 import Detail from '../screens/Detail'
+import Features from '../screens/Features';
 import {CardStyleInterpolators} from '@react-navigation/stack';
 const Stack = createStackNavigator();
 
@@ -24,7 +25,6 @@ const AppStack = (props) => {
 
   return (
     <Stack.Navigator
-    // initialRouteName={tokenApi ? 'Home' :'First'}
       screenOptions={{
         headerShown: false,
       }}>
@@ -45,6 +45,13 @@ const AppStack = (props) => {
        <Stack.Screen
         name="Detail"
         component={Detail}
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
+      />
+      <Stack.Screen
+        name="Features"
+        component={Features}
         options={{
           cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
         }}

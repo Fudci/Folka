@@ -1,17 +1,5 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  StatusBar,
-  Image,
-  TextInput,
-  FlatList,
-  Dimensions,
-  ScrollView,
-  Modal,
-  TouchableOpacity,
-  Platform,
-} from 'react-native';
+import {Dimensions, Platform,Text} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import LiveShow from '../screens/LiveShow';
 import LiveClass from '../screens/LiveClass';
@@ -23,42 +11,36 @@ const Tab = createBottomTabNavigator();
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 const BottomTabs = () => {
-  console.log(Platform)
   return (
     <Tab.Navigator
       screenOptions={({route}) => ({
         tabBarStyle: {
-          // backgroundColor: 'rgba(0, 0, 0, 1)',
-          height: windowHeight*0.1,
-          // borderColor: 'red',
-          // borderWidth: 1,
+          height: windowHeight * 0.1,
           elevation: 0,
           borderTopWidth: 0, // for Android
           shadowOffset: {
             width: 0,
             height: 0, // for iOS
           },
-          marginBottom:20,
-          borderRadius:100,
-          width:"90%",
-
-          alignSelf:'center'
+          marginBottom: 20,
+          borderRadius: 100,
+          width: '90%',
+          paddingTop: 4,
+          alignSelf: 'center',
+          paddingHorizontal:30
         },
         headerShown: true,
         headerTintColor: '#FFFFFF',
-        // headerStyle: {backgroundColor: '#1A1C22'},
         headerTitleAlign: 'center',
         tabBarHideOnKeyboard: true,
         tabBarShowLabel: true,
-        // tabBarInactiveTintColor: '#828387',
-        // tabBarActiveTintColor: '#FFFFFF',
-        // tabBarInactiveBackgroundColor: '#000000',
-        // tabBarActiveBackgroundColor: '#1A1C22',
+        tabBarInactiveTintColor: 'grey',
+        tabBarActiveTintColor: 'white',
         tabBarLabelStyle: {fontSize: 12, fontWeight: '700'},
         tabBarIcon: ({focused, size, color}) => {
           let iconName;
           if (route.name == 'LiveShow') {
-            iconName = focused ? 'analytics' : 'home-outline';
+            iconName = focused ? 'ios-tv-outline' : 'ios-tv-sharp';
             size = focused ? 25 : 20;
           } else if (route.name == 'LiveClass') {
             iconName = focused ? 'search' : 'search-outline';
@@ -75,19 +57,75 @@ const BottomTabs = () => {
           return <Ionicons name={iconName} size={size} color={color} />;
         },
       })}>
-      <Tab.Screen options={{headerShown: false}} name="LiveShow" component={LiveShow} />
       <Tab.Screen
-        options={{headerShown: false}}
+        options={{
+          headerShown: false,
+          tabBarLabel: ({ focused }) => (
+            <Text style={{ fontSize: 12, color: 'black' }}>
+             LiveShow
+            </Text>
+          ),
+          tabBarIconStyle: {
+            backgroundColor: 'red',
+            borderRadius: 100,
+            height: windowWidth * 0.15,
+            width: windowWidth * 0.15,
+          },
+        }}
+        name="LiveShow"
+        component={LiveShow}
+      />
+      <Tab.Screen
+        options={{
+          headerShown: false,
+          tabBarLabel: ({ focused }) => (
+            <Text style={{ fontSize: 12, color: 'black' }}>
+              LiveClass
+            </Text>
+          ),
+          tabBarIconStyle: {
+            backgroundColor: 'red',
+            borderRadius: 100,
+            height: windowWidth * 0.15,
+            width: windowWidth * 0.15,
+          },
+        }}
         name="LiveClass"
         component={LiveClass}
       />
       <Tab.Screen
-        options={{headerShown: false}}
+        options={{
+          headerShown: false,
+          tabBarLabel: ({ focused }) => (
+            <Text style={{ fontSize: 12, color: 'black' }}>
+              E-course
+            </Text>
+          ),
+          tabBarIconStyle: {
+            backgroundColor: 'red',
+            borderRadius: 100,
+            height: windowWidth * 0.15,
+            width: windowWidth * 0.15,
+          },
+        }}
         name="Ecourse"
         component={Ecourse}
       />
       <Tab.Screen
-        options={{headerShown: false}}
+        options={{
+          headerShown: false,
+          tabBarLabel: ({ focused }) => (
+            <Text style={{ fontSize: 12, color: 'black' }}>
+             Comunnity
+            </Text>
+          ),
+          tabBarIconStyle: {
+            backgroundColor: 'red',
+            borderRadius: 100,
+            height: windowWidth * 0.15,
+            width: windowWidth * 0.15,
+          },
+        }}
         name="Comunnity"
         component={Comunnity}
       />
