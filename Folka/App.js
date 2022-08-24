@@ -11,7 +11,7 @@ const App = () => {
       <NavigationContainer>   
         <AppStack />      
       </NavigationContainer>   
-    </Provider>
+    </Provider>   
   );
 };
 
