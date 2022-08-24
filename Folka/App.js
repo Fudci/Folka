@@ -9,7 +9,7 @@ const App = () => {
   return (
     <Provider store={storeRedux}>
       <NavigationContainer>   
-        <AppStack /> 
+        <AppStack />      
       </NavigationContainer>
     </Provider>
   );
