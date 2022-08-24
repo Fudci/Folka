@@ -7,7 +7,7 @@ import storeRedux from './src/redux/store';
 
 const App = () => {
   return (
-    <Provider store={storeRedux}>
+    <Provider store={storeRedux}>  
       <NavigationContainer>   
         <AppStack />      
       </NavigationContainer>   
